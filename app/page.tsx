@@ -1,6 +1,7 @@
 import About from "@/components/About";
 import Achievements from "@/components/Achievements";
 import ClientScripts from "@/components/ClientScripts";
+import JsonLd from "@/components/JsonLd";
 import Contact from "@/components/Contact";
 import Cursor from "@/components/Cursor";
 import DarkModeBulb from "@/components/DarkModeBulb";
@@ -40,6 +41,7 @@ export default function Page() {
       <SoundToggle />
 
       <ClientScripts />
+      <JsonLd />
     </>
   );
 }
