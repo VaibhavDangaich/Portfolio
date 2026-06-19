@@ -17,7 +17,7 @@ export default function Projects() {
       </div>
 
       <div id="physics-stage" data-cursor="grab">
-        <div className="pcard" data-x="-220" data-y="-80" data-rot="-4">
+        <div className="pcard" data-x="-280" data-y="-100" data-rot="-5">
           <div className="pyear">
             <span>Mar — Apr 2025</span>
             <span>#01</span>
@@ -47,7 +47,7 @@ export default function Projects() {
           </div>
         </div>
 
-        <div className="pcard" data-x="180" data-y="60" data-rot="3">
+        <div className="pcard" data-x="20" data-y="100" data-rot="2">
           <div className="pyear">
             <span>May — Jun 2025</span>
             <span>#02</span>
@@ -76,6 +76,43 @@ export default function Projects() {
             <a href="#" data-cursor="link">Live ↗</a>
           </div>
           <div className="pmetric">−90% manual typing · 30–50% token savings</div>
+        </div>
+
+        <div className="pcard pcard--npm" data-x="310" data-y="-60" data-rot="5">
+          <div className="pyear">
+            <span>
+              Jan 2025 — present
+              <span className="pnpm-badge">npm</span>
+            </span>
+            <span>#03</span>
+          </div>
+          <h3>
+            <em>mnex</em>
+          </h3>
+          <div className="pdesc">
+            A cognitive-architecture AI coding agent that lives in your terminal.
+            Stateful LangGraph planner→executor→critic loop, 5-tier memory
+            (episodic → causal), local-first routing via Ollama, GitHub
+            integration, eval harness, and a plugin SDK. Treats the agent as a
+            cognitive system, not a chatbot.
+          </div>
+          <div className="pstack">
+            <span>Node.js</span>
+            <span>LangGraph</span>
+            <span>LangChain</span>
+            <span>SQLite</span>
+            <span>Ollama</span>
+            <span>Gemini API</span>
+            <span>CLI</span>
+            <span>npm</span>
+          </div>
+          <div className="plinks">
+            <a href="https://github.com/VaibhavDangaich/mnex" data-cursor="link" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a href="https://www.npmjs.com/package/@vaibhav_dangaich/mnex" data-cursor="link" target="_blank" rel="noopener noreferrer">npm ↗</a>
+          </div>
+          <div className="pmetric">
+            v1.5.1 · npm i -g @vaibhav_dangaich/mnex
+          </div>
         </div>
       </div>
     </section>

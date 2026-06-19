@@ -327,7 +327,7 @@ section { position: relative; padding: 120px 80px; }
 .projects-intro .hint b { color: var(--accent); font-family: var(--mono); font-weight: 500; }
 
 #physics-stage {
-  position: relative; height: 640px; margin-top: 64px;
+  position: relative; height: 720px; margin-top: 64px;
   border-top: 1px dashed var(--paper-edge);
   border-bottom: 1px dashed var(--paper-edge);
   overflow: hidden;
@@ -351,6 +351,13 @@ section { position: relative; padding: 120px 80px; }
   will-change: transform;
 }
 .pcard.dragging { cursor: grabbing; box-shadow: 8px 8px 0 var(--accent); }
+.pcard--npm { border-left: 3px solid var(--accent); }
+.pcard--npm .pnpm-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--paper); background: var(--accent);
+  padding: 2px 6px; margin-left: 8px; vertical-align: middle;
+}
 .pcard .pyear { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; display: flex; justify-content: space-between; }
 .pcard h3 { font-family: var(--serif); font-weight: 400; font-size: 32px; line-height: 1.05; margin-bottom: 10px; letter-spacing: -0.01em; }
 .pcard h3 em { color: var(--accent); font-style: italic; }

@@ -23,8 +23,9 @@ export default function About() {
           <p data-reveal="">
             Things I think about a lot: how to make LLMs <em>actually</em>{" "}
             useful, how knowledge graphs can replace half the SQL we write, and
-            why no one has built a better git CLI yet. (I built one. It&apos;s
-            below.)
+            what a truly cognitive AI coding agent looks like — one with
+            persistent memory and a critic loop, not a stateless chatbot.
+            (I built one. It&apos;s below.)
           </p>
           <p data-reveal="">
             I like clean APIs, dense code, and a well-placed em dash.
