@@ -20,15 +20,15 @@ export default function Contact() {
           <span className="k">Phone</span>
           <span className="v">+91 77177 85632</span>
         </a>
-        <a href="#" data-cursor="link">
+        <a href="https://www.linkedin.com/in/vaibhavdangaich" target="_blank" rel="noopener noreferrer" data-cursor="link">
           <span className="k">LinkedIn</span>
           <span className="v">/in/vaibhavdangaich ↗</span>
         </a>
-        <a href="#" data-cursor="link">
+        <a href="https://github.com/VaibhavDangaich" target="_blank" rel="noopener noreferrer" data-cursor="link">
           <span className="k">GitHub</span>
-          <span className="v">@vaibhavdangaich ↗</span>
+          <span className="v">@VaibhavDangaich ↗</span>
         </a>
-        <a href="#" data-cursor="link">
+        <a href="https://leetcode.com/u/vaibhavdangaich" target="_blank" rel="noopener noreferrer" data-cursor="link">
           <span className="k">LeetCode</span>
           <span className="v">/u/vaibhavdangaich ↗</span>
         </a>
