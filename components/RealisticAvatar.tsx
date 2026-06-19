@@ -133,6 +133,7 @@ function buildAndAttachGlasses(scene: THREE.Object3D): THREE.Group | null {
     if (node.name === "Head" || node.name === "head") head = node;
   });
   if (!head) return null;
+  const headNode: THREE.Object3D = head;
 
   const frameMat = new THREE.MeshStandardMaterial({
     color: 0x1a1a1a,
@@ -196,7 +197,7 @@ function buildAndAttachGlasses(scene: THREE.Object3D): THREE.Group | null {
 
   glasses.position.set(0, 0.08, 0.10);
   glasses.scale.setScalar(1.5);
-  head.add(glasses);
+  headNode.add(glasses);
   return glasses;
 }
 
