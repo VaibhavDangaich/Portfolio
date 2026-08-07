@@ -89,6 +89,14 @@ export default function Projects() {
             >
               GitHub ↗
             </a>
+            <a
+              href="https://foiatlas-499486403320.asia-southeast1.run.app"
+              data-cursor="link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Live ↗
+            </a>
           </div>
           <div className="pmetric">
             Semantic-search chat · LangGraph ReAct agent · Cytoscape explorer
