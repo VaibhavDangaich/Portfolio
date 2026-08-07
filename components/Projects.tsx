@@ -149,6 +149,14 @@ export default function Projects() {
             >
               npm ↗
             </a>
+            <a
+              href="https://mnex-docs-site.vercel.app"
+              data-cursor="link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Docs ↗
+            </a>
           </div>
           <div className="pmetric">
             sub-50ms recall · −40% cloud inference · 3.5k lines, zero external

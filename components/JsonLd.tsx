@@ -78,8 +78,13 @@ const mnexSchema = {
   name: "mnex",
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Linux, macOS, Windows",
-  url: "https://www.npmjs.com/package/@vaibhav_dangaich/mnex",
+  url: "https://mnex-docs-site.vercel.app",
   downloadUrl: "https://www.npmjs.com/package/@vaibhav_dangaich/mnex",
+  softwareHelp: {
+    "@type": "CreativeWork",
+    name: "mnex documentation",
+    url: "https://mnex-docs-site.vercel.app",
+  },
   softwareVersion: "1.5.1",
   description:
     "Cognitive-architecture AI coding agent with stateful LangGraph planner-critic loop, 5-tier memory, causal work graph, local-first routing, GitHub integration, eval harness, and plugin SDK.",

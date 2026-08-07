@@ -405,7 +405,8 @@ section { position: relative; padding: 120px 80px; }
   border: 1px solid var(--paper-edge); color: var(--ink-2); letter-spacing: 0.05em;
 }
 .pcard .plinks {
-  display: flex; gap: 12px; font-family: var(--mono); font-size: 10px;
+  display: flex; flex-wrap: wrap; gap: 8px 12px;
+  font-family: var(--mono); font-size: 10px;
   letter-spacing: 0.1em; text-transform: uppercase;
 }
 .pcard .plinks a {
