@@ -57,6 +57,7 @@ const SECTION_TO_ANIM: Record<string, AnimName> = {
   top:        "expr1",     // greeting (wave-ish)
   about:      "idle_v2",   // looking-around idle
   experience: "typing",    // typing
+  publications: "expr2",   // presenting / explaining
   projects:   "expr4",     // thumbs-up / shrug
   stack:      "typing",    // typing
   education:  "expr6",     // engaged gesture

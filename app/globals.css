@@ -636,6 +636,12 @@ section { position: relative; padding: 120px 80px; }
 }
 
 @media (max-width: 900px) {
+  /* .topbar is a no-wrap flex row; six nav links + the mark + the availability
+     chip overflow here, which squashes the chip. Drop the mark's sub-label and
+     tighten the nav so everything still fits on tablet. */
+  .topbar .mark span:not(.vd) { display: none; }
+  .topbar .nav { gap: 14px; font-size: 10px; }
+
   .hero-canvas-wrap { height: 70vh; }
   .footer { flex-direction: column; align-items: flex-start; gap: 16px; }
   .footer .marquee { max-width: 100%; }
@@ -647,8 +653,6 @@ section { position: relative; padding: 120px 80px; }
 @media (max-width: 720px) {
   .topbar { top: 22px; left: 22px; right: 22px; gap: 12px; }
   .topbar .nav { display: none; }
-  /* "— Portfolio / 2026 · v01" collides with the availability chip on phones */
-  .topbar .mark span:not(.vd) { display: none; }
   .topbar .mark .vd { font-size: 19px; }
   .topbar .now { font-size: 10px; text-align: right; }
 

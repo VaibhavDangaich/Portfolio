@@ -45,7 +45,7 @@ export default function About() {
         <div className="fact" data-cursor="hover">
           <div className="k">DSA problems solved</div>
           <div className="v">
-            400+<small>LeetCode · Codeforces · GFG</small>
+            400+<small>LeetCode · Codeforces · GFG · CodeStudio</small>
           </div>
         </div>
         <div className="fact" data-cursor="hover">
