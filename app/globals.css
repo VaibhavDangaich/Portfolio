@@ -362,7 +362,7 @@ section { position: relative; padding: 120px 80px; }
 .projects-intro .hint b { color: var(--accent); font-family: var(--mono); font-weight: 500; }
 
 #physics-stage {
-  position: relative; height: 820px; margin-top: 64px;
+  position: relative; height: 980px; margin-top: 64px;
   border-top: 1px dashed var(--paper-edge);
   border-bottom: 1px dashed var(--paper-edge);
   overflow: hidden;
@@ -411,7 +411,6 @@ section { position: relative; padding: 120px 80px; }
 .pcard .plinks a {
   color: var(--ink); border-bottom: 1px solid var(--accent); padding-bottom: 2px;
 }
-.pcard .plinks .plink-muted { color: var(--muted); border-bottom: 1px dashed var(--paper-edge); padding-bottom: 2px; }
 .pcard .pmetric {
   margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--paper-edge);
   font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--accent);

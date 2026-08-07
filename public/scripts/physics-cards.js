@@ -53,7 +53,7 @@
   // below this width there is no room to fling a 320px card around, and the
   // absolute layout would just stack every card in the middle. fall back to a
   // plain vertical list and switch the simulation off.
-  const narrow = window.matchMedia('(max-width: 1024px)');
+  const narrow = window.matchMedia('(max-width: 1200px)');
   let active = false;
 
   function applyMode() {

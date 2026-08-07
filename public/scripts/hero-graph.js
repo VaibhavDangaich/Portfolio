@@ -30,6 +30,7 @@
     { id: 'llm',        label: 'LLMs · RAG',       type: 'skill' },
     { id: 'strapi',     label: 'Strapi',           type: 'skill' },
     // projects
+    { id: 'vaa',        label: 'Visual Activity Agent', type: 'project' },
     { id: 'foiatlas',   label: 'FOIAtlas',         type: 'project' },
     { id: 'mnex',       label: 'mnex · npm',       type: 'project' },
     { id: 'pushmuse',   label: 'PushMuse',         type: 'project' },
@@ -49,7 +50,7 @@
   const EDGES = [
     // me → top-level
     ['me','oneofai'], ['me','konect'], ['me','bit'],
-    ['me','foiatlas'], ['me','mnex'], ['me','pushmuse'], ['me','resume'],
+    ['me','vaa'], ['me','foiatlas'], ['me','mnex'], ['me','pushmuse'], ['me','resume'],
     ['me','paper'], ['me','ctf'], ['me','dsa'], ['me','llm'], ['me','python'],
     // 123 of AI cluster
     ['oneofai','next'], ['oneofai','react'], ['oneofai','node'], ['oneofai','ts'],
@@ -64,6 +65,8 @@
     ['foiatlas','langgraph'], ['foiatlas','llm'],
     // mnex cluster
     ['mnex','langgraph'], ['mnex','node'], ['mnex','llm'],
+    // visual activity agent cluster
+    ['vaa','node'], ['vaa','llm'], ['vaa','docker'],
     // resume builder cluster
     ['resume','react'], ['resume','next'], ['resume','tailwind'], ['resume','strapi'],
     // pushmuse cluster

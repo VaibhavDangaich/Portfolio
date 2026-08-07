@@ -17,10 +17,49 @@ export default function Projects() {
       </div>
 
       <div id="physics-stage" data-cursor="grab">
-        <div className="pcard" data-x="-320" data-y="-130" data-rot="-5">
+        <div className="pcard" data-x="-330" data-y="-170" data-rot="-4">
+          <div className="pyear">
+            <span>Aug 2026</span>
+            <span>#01</span>
+          </div>
+          <h3>
+            Visual <em>Activity</em> Agent
+          </h3>
+          <div className="pdesc">
+            A privacy-conscious Chrome MV3 extension that watches navigation,
+            clicks and focus, ships downscaled screenshots to a Node ingest API,
+            and lets Gemini vision summarize the session server-side. The
+            browser never runs a model, and perceptual-hash dedup drops
+            near-identical frames — so a static page costs almost no image data
+            at all.
+          </div>
+          <div className="pstack">
+            <span>Chrome MV3</span>
+            <span>Node.js</span>
+            <span>Express</span>
+            <span>Supabase</span>
+            <span>Postgres</span>
+            <span>Gemini Vision</span>
+          </div>
+          <div className="plinks">
+            <a
+              href="https://github.com/VaibhavDangaich/visual-activity-agent"
+              data-cursor="link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub ↗
+            </a>
+          </div>
+          <div className="pmetric">
+            dHash dedup · single-digit KB frames · idle-aware capture
+          </div>
+        </div>
+
+        <div className="pcard" data-x="10" data-y="-190" data-rot="-5">
           <div className="pyear">
             <span>Jun — Jul 2026</span>
-            <span>#01</span>
+            <span>#02</span>
           </div>
           <h3>
             <em>FOIAtlas</em>
@@ -56,13 +95,13 @@ export default function Projects() {
           </div>
         </div>
 
-        <div className="pcard pcard--npm" data-x="40" data-y="-150" data-rot="5">
+        <div className="pcard pcard--npm" data-x="340" data-y="-140" data-rot="5">
           <div className="pyear">
             <span>
               Feb 2026 — present
               <span className="pnpm-badge">npm</span>
             </span>
-            <span>#02</span>
+            <span>#03</span>
           </div>
           <h3>
             <em>mnex</em>
@@ -87,7 +126,7 @@ export default function Projects() {
           </div>
           <div className="plinks">
             <a
-              href="https://github.com/VaibhavDangaich/mnex"
+              href="https://github.com/VaibhavDangaich/MNEX"
               data-cursor="link"
               target="_blank"
               rel="noopener noreferrer"
@@ -109,10 +148,10 @@ export default function Projects() {
           </div>
         </div>
 
-        <div className="pcard" data-x="-200" data-y="140" data-rot="3">
+        <div className="pcard" data-x="-190" data-y="160" data-rot="3">
           <div className="pyear">
             <span>May — Jun 2025</span>
-            <span>#03</span>
+            <span>#04</span>
           </div>
           <h3>
             <em>PushMuse</em>
@@ -134,15 +173,22 @@ export default function Projects() {
             <span>Render</span>
           </div>
           <div className="plinks">
-            <span className="plink-muted">private repo</span>
+            <a
+              href="https://github.com/VaibhavDangaich/ai-commit-cli"
+              data-cursor="link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub ↗
+            </a>
           </div>
           <div className="pmetric">−90% manual typing · 30–50% token savings</div>
         </div>
 
-        <div className="pcard" data-x="260" data-y="120" data-rot="-3">
+        <div className="pcard" data-x="200" data-y="180" data-rot="-3">
           <div className="pyear">
             <span>Mar — Apr 2025</span>
-            <span>#04</span>
+            <span>#05</span>
           </div>
           <h3>
             AI <em>Resume</em> Builder
