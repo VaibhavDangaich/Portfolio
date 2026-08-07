@@ -46,24 +46,29 @@ export const metadata: Metadata = {
     template: "%s | Vaibhav Dangaich",
   },
   description:
-    "AI/ML student at BIT Mesra building LLM agents, knowledge graphs & real-time pipelines. Author of mnex — a cognitive AI coding agent. AI intern at Konect U.",
+    "Final-year AI/ML student at BIT Mesra building LLM agents, knowledge graphs & real-time pipelines. First author on an arXiv preprint, author of mnex on npm, ex-SDE intern at 123 of AI.",
 
   keywords: [
     "Vaibhav Dangaich",
     "AI ML developer",
     "LLM engineer",
     "knowledge graphs",
+    "GraphRAG",
     "Neo4j",
+    "Kùzu",
     "LangChain",
     "LangGraph",
     "mnex",
+    "FOIAtlas",
     "cognitive AI agent",
     "BIT Mesra",
     "portfolio",
     "React",
     "Next.js",
+    "TypeScript",
     "Python",
     "Kafka",
+    "Azure",
   ],
 
   authors: [{ name: "Vaibhav Dangaich", url: "https://github.com/VaibhavDangaich" }],
@@ -80,7 +85,7 @@ export const metadata: Metadata = {
     siteName: "Vaibhav Dangaich",
     title: "Vaibhav Dangaich — AI/ML Developer",
     description:
-      "AI/ML student at BIT Mesra building LLM agents, knowledge graphs & real-time pipelines. Author of mnex — a cognitive AI coding agent on npm.",
+      "Final-year AI/ML student at BIT Mesra building LLM agents, knowledge graphs & real-time pipelines. First author on an arXiv preprint; author of mnex on npm.",
     images: [
       {
         url: "/opengraph-image",

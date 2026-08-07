@@ -11,9 +11,12 @@ export default function About() {
         </h2>
         <div className="about-copy" style={{ marginTop: 48 }}>
           <p data-reveal="">
-            I&apos;m a third-year <span className="pop">AI &amp; ML</span> student at
-            BIT Mesra. By day, I&apos;m an AI intern at Konect U — wiring up Kafka
-            pipelines and Neo4j graphs for a government intelligence project.
+            I&apos;m a final-year <span className="pop">AI &amp; ML</span> student at
+            BIT Mesra. Most recently an SDE intern at 123 of AI, shipping a
+            cohort-learning platform, a Razorpay monetization stack and an
+            embeddings-based recommendation engine on Azure. Before that, Kafka
+            pipelines and Neo4j graphs for a government intelligence project at
+            Konect U.
           </p>
           <p data-reveal="">
             By night, I either ship side projects, grind LeetCode, or argue with
@@ -52,9 +55,9 @@ export default function About() {
           </div>
         </div>
         <div className="fact" data-cursor="hover">
-          <div className="k">Currently</div>
+          <div className="k">First-authored paper</div>
           <div className="v">
-            Shipping<small>data pipelines · LangChain workflows</small>
+            arXiv<small>ontology-guided KG extraction · Jul 2026</small>
           </div>
         </div>
       </aside>

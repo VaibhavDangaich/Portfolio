@@ -113,8 +113,8 @@ export default function OgImage() {
             }}
           >
             <span>BIT Mesra · AIML</span>
-            <span>Konect U · AI Intern</span>
-            <span style={{ color: "#c2410c" }}>npm · mnex</span>
+            <span>123 of AI · SDE Intern</span>
+            <span style={{ color: "#c2410c" }}>arXiv · npm · mnex</span>
           </div>
           <span
             style={{

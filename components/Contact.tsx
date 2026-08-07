@@ -3,7 +3,7 @@ export default function Contact() {
     <section className="contact" id="contact">
       <div className="section-label" data-reveal="">
         <span className="line" />
-        <span>§ 07 — Get in touch</span>
+        <span>§ 08 — Get in touch</span>
       </div>
       <h2 className="contact-hero" data-reveal="">
         <span className="arr">↳</span> Let&apos;s <em>build</em>

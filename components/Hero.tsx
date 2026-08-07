@@ -15,10 +15,12 @@ export default function Hero() {
 
         <p className="hero-sub" data-reveal="">
           I build with <strong>LLMs</strong>, knowledge graphs, and a worrying
-          amount of caffeine. Currently wiring up{" "}
-          <strong>real-time data pipelines</strong> for a defense-intelligence
-          project at Konect U, and shipping side projects in the cracks between
-          lectures.
+          amount of caffeine. Just wrapped an SDE internship at{" "}
+          <strong>123 of AI</strong> — cohort learning, payments and a
+          recommendation engine on Azure. Before that: real-time pipelines for a
+          defense-intelligence project, and a{" "}
+          <strong>first-authored paper</strong> on ontology-guided knowledge
+          graph extraction.
         </p>
 
         <div className="hero-meta" data-reveal="">
@@ -29,10 +31,10 @@ export default function Hero() {
             2023 — 2027
           </div>
           <div>
-            <b>Konect U</b>
-            AI Intern
+            <b>123 of AI</b>
+            SDE Intern
             <br />
-            Feb 2026 — now
+            May — Jul 2026
           </div>
           <div>
             <b>Jharkhand → ∞</b>

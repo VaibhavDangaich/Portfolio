@@ -3,7 +3,7 @@ export default function Education() {
     <section className="education" id="education">
       <div className="section-label" data-reveal="">
         <span className="line" />
-        <span>§ 05 — Education</span>
+        <span>§ 06 — Education</span>
       </div>
       <h2 className="section-title" data-reveal="">
         Schools <em>attended</em>.

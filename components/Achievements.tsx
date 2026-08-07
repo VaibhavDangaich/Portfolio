@@ -3,7 +3,7 @@ export default function Achievements() {
     <section className="achieve" id="wins">
       <div className="section-label" data-reveal="">
         <span className="line" />
-        <span>§ 06 — A few wins</span>
+        <span>§ 07 — A few wins</span>
       </div>
       <h2 className="section-title" data-reveal="">
         Receipts.
@@ -14,8 +14,8 @@ export default function Achievements() {
           <div className="big">400+</div>
           <div className="lbl">DSA problems solved</div>
           <p>
-            Across LeetCode, Codeforces and GeeksforGeeks. Yes, I have a
-            spreadsheet. No, I won&apos;t show it to you.
+            Across LeetCode, Codeforces, GeeksforGeeks and CodeStudio. Yes, I
+            have a spreadsheet. No, I won&apos;t show it to you.
           </p>
         </div>
         <div className="ach-card" data-reveal="" data-cursor="hover">

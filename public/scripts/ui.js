@@ -171,6 +171,48 @@
     a.addEventListener('pointerleave', () => { a.style.transform = ''; });
   });
 
+  // ---------- "try clicking me!" prompt ----------
+  // It is position:fixed, so without this it would hover over every section
+  // for the whole visit. Hide it as soon as the hero is scrolled away, and
+  // retire it for good once the hint has been taken (or ignored long enough).
+  const tryPrompt = document.getElementById('try-prompt');
+  if (tryPrompt) {
+    let retired = false;
+
+    const retire = () => {
+      retired = true;
+      tryPrompt.classList.add('dismissed');
+    };
+
+    // taken the hint
+    const bulb = document.getElementById('dm-bulb-btn');
+    if (bulb) bulb.addEventListener('click', retire, { once: true });
+
+    // ignored long enough
+    const timer = setTimeout(retire, 12000);
+
+    let ticking = false;
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          ticking = false;
+          if (retired) return;
+          const past = window.scrollY > window.innerHeight * 0.4;
+          tryPrompt.classList.toggle('dismissed', past);
+          // scrolled well into the page — no need to nag on the way back up
+          if (window.scrollY > window.innerHeight * 1.5) {
+            clearTimeout(timer);
+            retire();
+          }
+        });
+      },
+      { passive: true }
+    );
+  }
+
   // ---------- year ----------
   // (kept inline in markup)
 })();

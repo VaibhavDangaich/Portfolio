@@ -12,25 +12,34 @@
     { id: 'me',         label: 'Vaibhav Dangaich', type: 'center', size: 0.42 },
     // skills
     { id: 'langchain',  label: 'LangChain',        type: 'skill' },
+    { id: 'langgraph',  label: 'LangGraph',        type: 'skill' },
     { id: 'neo4j',      label: 'Neo4j',            type: 'skill' },
+    { id: 'kuzu',       label: 'Kùzu',             type: 'skill' },
     { id: 'kafka',      label: 'Apache Kafka',     type: 'skill' },
     { id: 'nifi',       label: 'Apache NiFi',      type: 'skill' },
     { id: 'python',     label: 'Python',           type: 'skill' },
+    { id: 'ts',         label: 'TypeScript',       type: 'skill' },
     { id: 'react',      label: 'React',            type: 'skill' },
     { id: 'next',       label: 'Next.js',          type: 'skill' },
+    { id: 'node',       label: 'Node · Express',   type: 'skill' },
     { id: 'fastapi',    label: 'FastAPI',          type: 'skill' },
     { id: 'docker',     label: 'Docker',           type: 'skill' },
+    { id: 'azure',      label: 'Azure',            type: 'skill' },
     { id: 'tailwind',   label: 'Tailwind',         type: 'skill' },
     { id: 'cpp',        label: 'C / C++',          type: 'skill' },
     { id: 'llm',        label: 'LLMs · RAG',       type: 'skill' },
     { id: 'strapi',     label: 'Strapi',           type: 'skill' },
     // projects
+    { id: 'foiatlas',   label: 'FOIAtlas',         type: 'project' },
+    { id: 'mnex',       label: 'mnex · npm',       type: 'project' },
     { id: 'pushmuse',   label: 'PushMuse',         type: 'project' },
     { id: 'resume',     label: 'AI Resume Builder',type: 'project' },
     // experience
+    { id: 'oneofai',    label: '123 of AI',        type: 'exp' },
     { id: 'konect',     label: 'Konect U',         type: 'exp' },
     { id: 'bit',        label: 'BIT Mesra',        type: 'exp' },
     // wins
+    { id: 'paper',      label: 'arXiv preprint',   type: 'win' },
     { id: 'ctf',        label: 'CTF · top 5',      type: 'win' },
     { id: 'dsa',        label: '400+ DSA',         type: 'win' },
   ];
@@ -39,18 +48,30 @@
   // me connects to most things; lateral edges add graph feel
   const EDGES = [
     // me → top-level
-    ['me','konect'], ['me','bit'], ['me','pushmuse'], ['me','resume'],
-    ['me','ctf'], ['me','dsa'], ['me','llm'], ['me','python'],
+    ['me','oneofai'], ['me','konect'], ['me','bit'],
+    ['me','foiatlas'], ['me','mnex'], ['me','pushmuse'], ['me','resume'],
+    ['me','paper'], ['me','ctf'], ['me','dsa'], ['me','llm'], ['me','python'],
+    // 123 of AI cluster
+    ['oneofai','next'], ['oneofai','react'], ['oneofai','node'], ['oneofai','ts'],
+    ['oneofai','azure'], ['oneofai','llm'],
     // konect U cluster
     ['konect','langchain'], ['konect','neo4j'], ['konect','kafka'], ['konect','nifi'],
     ['konect','fastapi'], ['konect','python'], ['konect','docker'],
+    // paper cluster — grew out of the Konect U work
+    ['paper','konect'], ['paper','neo4j'], ['paper','kafka'], ['paper','llm'],
+    // foiatlas cluster
+    ['foiatlas','next'], ['foiatlas','ts'], ['foiatlas','kuzu'],
+    ['foiatlas','langgraph'], ['foiatlas','llm'],
+    // mnex cluster
+    ['mnex','langgraph'], ['mnex','node'], ['mnex','llm'],
     // resume builder cluster
     ['resume','react'], ['resume','next'], ['resume','tailwind'], ['resume','strapi'],
     // pushmuse cluster
     ['pushmuse','next'], ['pushmuse','llm'],
     // skill-skill
-    ['langchain','llm'], ['react','next'], ['neo4j','llm'],
-    ['python','fastapi'], ['fastapi','docker'],
+    ['langchain','llm'], ['langchain','langgraph'], ['react','next'],
+    ['neo4j','llm'], ['neo4j','kuzu'], ['next','ts'], ['node','ts'],
+    ['python','fastapi'], ['fastapi','docker'], ['docker','azure'],
     // bit cluster
     ['bit','cpp'], ['bit','dsa'], ['bit','ctf'],
   ];

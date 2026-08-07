@@ -3,7 +3,7 @@ export default function Skills() {
     <section className="skills" id="stack">
       <div className="section-label" data-reveal="">
         <span className="line" />
-        <span>§ 04 — Stack</span>
+        <span>§ 05 — Stack</span>
       </div>
       <h2 className="section-title" data-reveal="">
         Tools of the <em>trade</em>.
@@ -17,6 +17,8 @@ export default function Skills() {
             <li>C / C++</li>
             <li>Python</li>
             <li>JavaScript</li>
+            <li>TypeScript</li>
+            <li>SQL</li>
             <li>HTML / CSS</li>
           </ul>
         </div>
@@ -25,11 +27,12 @@ export default function Skills() {
             Frameworks <span>β</span>
           </h4>
           <ul>
-            <li>LangChain</li>
+            <li>LangChain · LangGraph</li>
             <li>React · Next.js</li>
+            <li>Node.js · Express</li>
             <li>FastAPI</li>
             <li>Tailwind</li>
-            <li>Strapi</li>
+            <li>Three.js</li>
             <li>scikit-learn</li>
           </ul>
         </div>
@@ -38,12 +41,14 @@ export default function Skills() {
             Tools <span>γ</span>
           </h4>
           <ul>
-            <li>Git · Docker</li>
+            <li>Git · GitHub</li>
+            <li>Docker · Azure</li>
             <li>Apache Kafka</li>
             <li>Apache NiFi</li>
-            <li>Neo4j · MongoDB</li>
+            <li>Neo4j · Kùzu</li>
+            <li>MongoDB · SQLite</li>
+            <li>Jest · Postman</li>
             <li>Vector DBs</li>
-            <li>Vercel · Postman</li>
           </ul>
         </div>
         <div className="skill-col" data-reveal="">
@@ -51,11 +56,23 @@ export default function Skills() {
             Curious about <span>δ</span>
           </h4>
           <ul>
-            <li>Generative AI</li>
-            <li>RAG &amp; LLMs</li>
+            <li>Generative AI (LLMs)</li>
+            <li>RAG &amp; GraphRAG</li>
             <li>Knowledge Graphs</li>
+            <li>Machine Learning</li>
             <li>Web Dev</li>
             <li>Comp. Programming</li>
+          </ul>
+        </div>
+        <div className="skill-col skill-col--wide" data-reveal="">
+          <h4>
+            CS fundamentals <span>ε</span>
+          </h4>
+          <ul className="inline">
+            <li>DBMS</li>
+            <li>Operating Systems</li>
+            <li>OOP</li>
+            <li>Data Structures &amp; Algorithms</li>
           </ul>
         </div>
       </div>

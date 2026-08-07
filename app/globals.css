@@ -310,6 +310,41 @@ section { position: relative; padding: 120px 80px; }
   content: "→"; position: absolute; left: 0; top: 0; color: var(--accent); font-family: var(--mono);
 }
 
+/* ============= PUBLICATIONS ============= */
+.publications { border-bottom: 1px solid var(--paper-edge); }
+.pub-list { margin-top: 64px; }
+.pub-card {
+  border: 1px solid var(--paper-edge); border-left: 3px solid var(--accent);
+  padding: 40px; background: var(--paper);
+  transition: transform 280ms cubic-bezier(.2,.7,.2,1), border-color 220ms;
+}
+.pub-card:hover { transform: translateY(-4px); border-color: var(--ink); border-left-color: var(--accent); }
+.pub-meta {
+  display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 18px;
+}
+.pub-card h3 {
+  font-family: var(--serif); font-weight: 400; font-size: clamp(24px, 3vw, 38px);
+  line-height: 1.12; letter-spacing: -0.01em; max-width: 30ch;
+}
+.pub-card h3 em { color: var(--accent); font-style: italic; }
+.pub-authors {
+  margin-top: 14px; font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.06em; color: var(--muted);
+}
+.pub-authors b { color: var(--ink); font-weight: 500; }
+.pub-abstract {
+  margin-top: 18px; font-size: 16px; line-height: 1.55;
+  color: var(--ink-2); max-width: 60ch; text-wrap: pretty;
+}
+.pub-links {
+  margin-top: 22px; display: flex; gap: 12px;
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.pub-links a { color: var(--ink); border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+
 /* ============= PROJECTS ============= */
 .projects {
   border-bottom: 1px solid var(--paper-edge);
@@ -327,7 +362,7 @@ section { position: relative; padding: 120px 80px; }
 .projects-intro .hint b { color: var(--accent); font-family: var(--mono); font-weight: 500; }
 
 #physics-stage {
-  position: relative; height: 720px; margin-top: 64px;
+  position: relative; height: 820px; margin-top: 64px;
   border-top: 1px dashed var(--paper-edge);
   border-bottom: 1px dashed var(--paper-edge);
   overflow: hidden;
@@ -376,9 +411,22 @@ section { position: relative; padding: 120px 80px; }
 .pcard .plinks a {
   color: var(--ink); border-bottom: 1px solid var(--accent); padding-bottom: 2px;
 }
+.pcard .plinks .plink-muted { color: var(--muted); border-bottom: 1px dashed var(--paper-edge); padding-bottom: 2px; }
 .pcard .pmetric {
   margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--paper-edge);
   font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--accent);
+}
+
+/* static fallback: no room to fling cards on small screens, so stack them */
+#physics-stage.static-cards {
+  height: auto; overflow: visible; cursor: default;
+  display: flex; flex-direction: column; gap: 24px;
+  padding: 40px 0;
+}
+#physics-stage.static-cards::before { content: none; }
+#physics-stage.static-cards .pcard {
+  position: static; width: 100%; max-width: 520px; margin: 0 auto;
+  transform: none !important; cursor: default;
 }
 
 /* ============= SKILLS ============= */
@@ -410,6 +458,12 @@ section { position: relative; padding: 120px 80px; }
   cursor: default;
 }
 .skill-col li:hover { color: var(--accent); transform: translateX(4px); }
+/* full-width strip on the second row */
+.skill-col--wide { grid-column: 1 / -1; border-right: none; }
+.skill-col--wide ul.inline {
+  flex-direction: row; flex-wrap: wrap; gap: 8px 32px;
+}
+.skill-col--wide ul.inline li { font-size: 20px; }
 
 /* ============= EDUCATION ============= */
 .education { border-bottom: 1px solid var(--paper-edge); }
@@ -569,12 +623,79 @@ section { position: relative; padding: 120px 80px; }
 [data-reveal-stagger] > * { opacity: 0; transform: translateY(16px); transition: opacity 600ms ease, transform 600ms cubic-bezier(.2,.7,.2,1); }
 [data-reveal-stagger].in > * { opacity: 1; transform: translateY(0); }
 
-/* responsive trims */
+/* ============= RESPONSIVE ============= */
+
+/* tablet */
+@media (max-width: 1024px) {
+  /* the wide fundamentals strip must not keep a stray right border */
+  .skill-col--wide { border-right: none; }
+  /* touch-action:none on the canvas swallows vertical swipes and traps the
+     page; pan-y gives scrolling back while horizontal drags still rotate. */
+  #hero-canvas { touch-action: pan-y; }
+  .pub-card { padding: 32px; }
+}
+
+@media (max-width: 900px) {
+  .hero-canvas-wrap { height: 70vh; }
+  .footer { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .footer .marquee { max-width: 100%; }
+  .ach-card { padding: 32px 28px; }
+  .ach-card .big { font-size: 88px; }
+  .projects-intro .hint { max-width: none; }
+}
+
 @media (max-width: 720px) {
+  .topbar { top: 22px; left: 22px; right: 22px; gap: 12px; }
   .topbar .nav { display: none; }
+  /* "— Portfolio / 2026 · v01" collides with the availability chip on phones */
+  .topbar .mark span:not(.vd) { display: none; }
+  .topbar .mark .vd { font-size: 19px; }
+  .topbar .now { font-size: 10px; text-align: right; }
+
   .hero h1 { font-size: clamp(48px, 14vw, 96px); }
   .hero-text { gap: 32px; }
   .hero-meta { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .hero-canvas-wrap { height: 60vh; }
+  .hero-sub { font-size: 16px; }
+  .graph-counter { right: 16px; top: 16px; }
+  .graph-hint { left: 16px; bottom: 16px; }
+
+  .section-title { font-size: clamp(38px, 11vw, 72px); }
+  .contact-hero { font-size: clamp(44px, 15vw, 120px); }
+  .about-copy p { font-size: 18px; }
+
+  /* no custom cursor on touch — the dot would sit frozen in a corner */
+  .cursor, .cursor-trail { display: none; }
+  .sound-toggle { cursor: pointer; bottom: 22px; left: 22px; }
+  .pcard { cursor: default; }
+
+  .pub-card { padding: 26px 22px; }
+  .pub-abstract { font-size: 15px; }
+  .exp-role h3 { font-size: 30px; }
+  .edu-row .what h3 { font-size: 24px; }
+}
+
+/* small phones */
+@media (max-width: 560px) {
+  section { padding: 80px 20px; }
+  .hero-text { padding: 104px 20px 36px; }
+  .scroll-cue { left: 20px; }
+  .frame { inset: 10px; }
+  .topbar { top: 18px; left: 18px; right: 18px; }
+
+  .skill-grid { grid-template-columns: 1fr; }
+  .skill-col { padding: 26px 20px; border-right: none; }
+  .skill-col--wide ul.inline { gap: 8px 20px; }
+
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-grid a { border-right: none; padding: 24px 20px; }
+
+  .hero-meta { grid-template-columns: 1fr; gap: 14px; }
+  .ach-card .big { font-size: 72px; }
+  .ach-card { padding: 26px 22px; }
+  .fact { padding: 16px 18px; }
+  .exp-row { padding: 32px 0; }
+  #physics-stage.static-cards .pcard { padding: 20px; }
 }
 
 /* ============= DARK MODE ============= */
@@ -800,28 +921,35 @@ body.dark .dm-halo {
 }
 
 /* ============= TRY-CLICKING-ME PROMPT ============= */
+/* Anchored off the same 28% edge as .dm-rig so the arrow always lands on the
+   bulb instead of drifting across the viewport at odd widths. It is fixed, so
+   it must get out of the way once you start reading — see .dismissed, applied
+   by ui.js on scroll / bulb click / timeout. */
 .try-prompt {
-  position: fixed; top: 92px;
-  right: 12vw;
-  width: 16vw;
-  height: 130px;
+  position: fixed; top: 84px;
+  right: calc(28% - 200px);
+  width: 200px;
+  height: 120px;
   z-index: 56;
   pointer-events: none;
   color: var(--ink);
   transition: opacity 480ms ease, transform 480ms cubic-bezier(.2,.7,.2,1);
   overflow: visible;
 }
-body.dark .try-prompt {
+body.dark .try-prompt,
+.try-prompt.dismissed {
   opacity: 0;
   transform: translateY(-12px) scale(0.94);
 }
 @media (max-width: 1100px) { .try-prompt { display: none; } }
+/* short viewports: the prompt would crowd the hero headline */
+@media (max-height: 720px) { .try-prompt { display: none; } }
 
 .try-text {
-  position: absolute; top: 6px; left: 24px;
+  position: absolute; top: 6px; left: 18px;
   font-family: var(--caveat);
   font-weight: 700;
-  font-size: clamp(24px, 2.1vw, 32px);
+  font-size: clamp(22px, 1.7vw, 28px);
   letter-spacing: 0.3px;
   line-height: 1;
   color: var(--accent);

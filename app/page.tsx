@@ -12,6 +12,7 @@ import Experience from "@/components/Experience";
 import Frame from "@/components/Frame";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
+import Publications from "@/components/Publications";
 import Skills from "@/components/Skills";
 import SoundToggle from "@/components/SoundToggle";
 import TopBar from "@/components/TopBar";
@@ -26,6 +27,7 @@ export default function Page() {
       <Hero />
       <About />
       <Experience />
+      <Publications />
       <Projects />
       <Skills />
       <Education />

@@ -3,7 +3,7 @@ export default function Projects() {
     <section className="projects" id="projects">
       <div className="section-label" data-reveal="">
         <span className="line" />
-        <span>§ 03 — Things I&apos;ve built</span>
+        <span>§ 04 — Things I&apos;ve built</span>
       </div>
       <div className="projects-intro">
         <h2 className="section-title" data-reveal="">
@@ -17,40 +17,102 @@ export default function Projects() {
       </div>
 
       <div id="physics-stage" data-cursor="grab">
-        <div className="pcard" data-x="-280" data-y="-100" data-rot="-5">
+        <div className="pcard" data-x="-320" data-y="-130" data-rot="-5">
           <div className="pyear">
-            <span>Mar — Apr 2025</span>
+            <span>Jun — Jul 2026</span>
             <span>#01</span>
           </div>
           <h3>
-            AI <em>Resume</em> Builder
+            <em>FOIAtlas</em>
           </h3>
           <div className="pdesc">
-            Full-stack app that builds a polished resume in a fraction of the
-            time. React 19, Strapi CMS, Neon DB, Clerk auth. AI does the heavy
-            lifting on content suggestions; you stay in the driver&apos;s seat.
+            An investigative GraphRAG tool that turns released FOIA/RTI records
+            into a queryable knowledge graph — a 6-stage pipeline (parse →
+            extract → resolve → embed → write) with schema-constrained Gemini
+            extraction into an embedded Kùzu graph. Every redaction is a
+            first-class node carrying its legal exemption code, so concealed
+            spans become leads instead of dead ends.
           </div>
           <div className="pstack">
-            <span>React 19</span>
-            <span>Tailwind v4</span>
-            <span>Strapi</span>
-            <span>Neon</span>
-            <span>Clerk</span>
-            <span>shadcn</span>
+            <span>Next.js 16</span>
+            <span>TypeScript</span>
+            <span>Kùzu</span>
+            <span>Gemini</span>
+            <span>LangGraph</span>
+            <span>Cytoscape</span>
           </div>
           <div className="plinks">
-            <a href="#" data-cursor="link">GitHub ↗</a>
-            <a href="#" data-cursor="link">Live ↗</a>
+            <a
+              href="https://github.com/VaibhavDangaich/foiatlas"
+              data-cursor="link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub ↗
+            </a>
           </div>
           <div className="pmetric">
-            75% faster resume creation · −15 min average
+            Semantic-search chat · LangGraph ReAct agent · Cytoscape explorer
           </div>
         </div>
 
-        <div className="pcard" data-x="20" data-y="100" data-rot="2">
+        <div className="pcard pcard--npm" data-x="40" data-y="-150" data-rot="5">
+          <div className="pyear">
+            <span>
+              Feb 2026 — present
+              <span className="pnpm-badge">npm</span>
+            </span>
+            <span>#02</span>
+          </div>
+          <h3>
+            <em>mnex</em>
+          </h3>
+          <div className="pdesc">
+            A cognitive-architecture AI coding agent that lives in your terminal.
+            Stateful LangGraph planner → executor → critic loop for
+            self-correcting multi-step reasoning over your codebase, a 5-tier
+            persistent memory on SQLite WAL, and a local-first router (Ollama →
+            OpenAI/Gemini). Treats the agent as a cognitive system, not a
+            chatbot.
+          </div>
+          <div className="pstack">
+            <span>Node.js</span>
+            <span>LangGraph</span>
+            <span>LangChain</span>
+            <span>SQLite</span>
+            <span>Ollama</span>
+            <span>Gemini API</span>
+            <span>CLI</span>
+            <span>npm</span>
+          </div>
+          <div className="plinks">
+            <a
+              href="https://github.com/VaibhavDangaich/mnex"
+              data-cursor="link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub ↗
+            </a>
+            <a
+              href="https://www.npmjs.com/package/@vaibhav_dangaich/mnex"
+              data-cursor="link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              npm ↗
+            </a>
+          </div>
+          <div className="pmetric">
+            sub-50ms recall · −40% cloud inference · 3.5k lines, zero external
+            infra
+          </div>
+        </div>
+
+        <div className="pcard" data-x="-200" data-y="140" data-rot="3">
           <div className="pyear">
             <span>May — Jun 2025</span>
-            <span>#02</span>
+            <span>#03</span>
           </div>
           <h3>
             <em>PushMuse</em>
@@ -72,46 +134,53 @@ export default function Projects() {
             <span>Render</span>
           </div>
           <div className="plinks">
-            <a href="#" data-cursor="link">GitHub ↗</a>
-            <a href="#" data-cursor="link">Live ↗</a>
+            <span className="plink-muted">private repo</span>
           </div>
           <div className="pmetric">−90% manual typing · 30–50% token savings</div>
         </div>
 
-        <div className="pcard pcard--npm" data-x="310" data-y="-60" data-rot="5">
+        <div className="pcard" data-x="260" data-y="120" data-rot="-3">
           <div className="pyear">
-            <span>
-              Jan 2025 — present
-              <span className="pnpm-badge">npm</span>
-            </span>
-            <span>#03</span>
+            <span>Mar — Apr 2025</span>
+            <span>#04</span>
           </div>
           <h3>
-            <em>mnex</em>
+            AI <em>Resume</em> Builder
           </h3>
           <div className="pdesc">
-            A cognitive-architecture AI coding agent that lives in your terminal.
-            Stateful LangGraph planner→executor→critic loop, 5-tier memory
-            (episodic → causal), local-first routing via Ollama, GitHub
-            integration, eval harness, and a plugin SDK. Treats the agent as a
-            cognitive system, not a chatbot.
+            Full-stack app that builds a polished resume in a fraction of the
+            time. React 19, Strapi CMS, Neon Postgres, Clerk auth, and a
+            real-time editor in shadcn + Tailwind v4. AI does the heavy lifting
+            on content suggestions; you stay in the driver&apos;s seat.
           </div>
           <div className="pstack">
-            <span>Node.js</span>
-            <span>LangGraph</span>
-            <span>LangChain</span>
-            <span>SQLite</span>
-            <span>Ollama</span>
-            <span>Gemini API</span>
-            <span>CLI</span>
-            <span>npm</span>
+            <span>React 19</span>
+            <span>Tailwind v4</span>
+            <span>Strapi</span>
+            <span>Neon</span>
+            <span>Clerk</span>
+            <span>shadcn</span>
           </div>
           <div className="plinks">
-            <a href="https://github.com/VaibhavDangaich/mnex" data-cursor="link" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-            <a href="https://www.npmjs.com/package/@vaibhav_dangaich/mnex" data-cursor="link" target="_blank" rel="noopener noreferrer">npm ↗</a>
+            <a
+              href="https://github.com/VaibhavDangaich/AI-resume-builder"
+              data-cursor="link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub ↗
+            </a>
+            <a
+              href="https://ai-resume-builder-8a6b.vercel.app"
+              data-cursor="link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Live ↗
+            </a>
           </div>
           <div className="pmetric">
-            v1.5.1 · npm i -g @vaibhav_dangaich/mnex
+            75% faster resume creation · −15 min average
           </div>
         </div>
       </div>

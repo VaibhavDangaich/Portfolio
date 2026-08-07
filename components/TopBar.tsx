@@ -8,13 +8,14 @@ export default function TopBar() {
       <nav className="nav">
         <a href="#about" data-cursor="link">About</a>
         <a href="#experience" data-cursor="link">Experience</a>
+        <a href="#publications" data-cursor="link">Papers</a>
         <a href="#projects" data-cursor="link">Projects</a>
         <a href="#stack" data-cursor="link">Stack</a>
         <a href="#contact" data-cursor="link">Contact</a>
       </nav>
       <div className="now">
         <span className="dot" />
-        <span>Available · Summer &apos;26</span>
+        <span>Open to roles · &apos;27</span>
       </div>
     </div>
   );

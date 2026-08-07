@@ -50,16 +50,45 @@
     // x/y are offsets from center of stage
     c.el.style.transform = `translate(calc(-50% + ${c.x}px), calc(-50% + ${c.y}px)) rotate(${c.rot}deg)`;
   }
-  // initial placement: center of stage + home offset
-  sim.forEach((c) => {
-    c.el.style.left = '50%';
-    c.el.style.top = '50%';
-    applyTransform(c);
-  });
+  // below this width there is no room to fling a 320px card around, and the
+  // absolute layout would just stack every card in the middle. fall back to a
+  // plain vertical list and switch the simulation off.
+  const narrow = window.matchMedia('(max-width: 1024px)');
+  let active = false;
+
+  function applyMode() {
+    active = !narrow.matches;
+    if (active) {
+      stage.classList.remove('static-cards');
+      sim.forEach((c) => {
+        c.el.style.left = '50%';
+        c.el.style.top = '50%';
+        // reset to home so a resize never leaves a card parked off-screen
+        c.x = c.homeX; c.y = c.homeY; c.rot = c.homeRot;
+        c.vx = 0; c.vy = 0; c.vRot = 0;
+        applyTransform(c);
+      });
+      measure();
+    } else {
+      stage.classList.add('static-cards');
+      sim.forEach((c) => {
+        c.dragging = false;
+        c.el.classList.remove('dragging');
+        c.el.style.left = '';
+        c.el.style.top = '';
+        c.el.style.transform = '';
+        c.el.style.zIndex = '';
+      });
+    }
+  }
+  applyMode();
+  if (narrow.addEventListener) narrow.addEventListener('change', applyMode);
+  else narrow.addListener(applyMode); // older Safari
 
   // drag
   sim.forEach((c) => {
     c.el.addEventListener('pointerdown', (e) => {
+      if (!active) return;
       // ignore clicks on links inside the card
       if (e.target.closest('a')) return;
       e.preventDefault();
@@ -111,6 +140,7 @@
 
   // simulation
   function step() {
+    if (!active) { requestAnimationFrame(step); return; }
     sim.forEach((c) => {
       if (!c.dragging) {
         // spring toward home
