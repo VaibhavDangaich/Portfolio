@@ -238,16 +238,26 @@ export function MaskReveal({
   if (reduce) return <div className={className}>{children}</div>;
 
   return (
-    <div className={className} style={{ overflow: "hidden", paddingBottom: "0.12em" }}>
+    /* Trigger on the wrapper, not the moving child — see SectionHead for why.
+       An observer on an element translated 110% of its own height watches a
+       box far below the heading's real position, and `once: true` makes a
+       missed trigger permanent. */
+    <motion.div
+      className={className}
+      style={{ overflow: "hidden", paddingBottom: "0.12em" }}
+      initial="hidden"
+      whileInView="show"
+      viewport={VIEWPORT}
+    >
       <motion.div
-        initial={{ y: "110%" }}
-        whileInView={{ y: "0%" }}
-        viewport={VIEWPORT}
-        transition={{ duration: 1, delay, ease: EASE }}
+        variants={{
+          hidden: { y: "110%" },
+          show: { y: "0%", transition: { duration: 1, delay, ease: EASE } },
+        }}
       >
         {children}
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 

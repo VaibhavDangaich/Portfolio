@@ -283,11 +283,16 @@ section { position: relative; padding: 120px 80px; }
 }
 .exp-row:last-child { border-bottom: 1px solid var(--paper-edge); }
 .exp-row:hover { background: rgba(194,65,12,0.03); }
+/* Sits out in the section gutter, not at left:0 — .exp-row has no horizontal
+   padding, so a bar on the content edge landed on top of the date and clipped
+   the "latest" tag. Draws downward as a hairline rule instead of a 4px slab. */
 .exp-row::before {
-  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 0;
-  background: var(--accent); transition: width 280ms cubic-bezier(.2,.7,.2,1);
+  content: ""; position: absolute; left: -20px; top: 0; bottom: 0; width: 2px;
+  background: var(--accent);
+  transform: scaleY(0); transform-origin: top center;
+  transition: transform 320ms cubic-bezier(.2,.7,.2,1);
 }
-.exp-row:hover::before { width: 4px; }
+.exp-row:hover::before { transform: scaleY(1); }
 @media (max-width: 1024px) { .exp-row { grid-template-columns: 1fr; gap: 16px; } }
 
 .exp-date {

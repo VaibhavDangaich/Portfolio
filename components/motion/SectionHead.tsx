@@ -31,18 +31,33 @@ export default function SectionHead({
         <h2 className="section-title">{children}</h2>
       ) : (
         /* Overflow-clipped so the title wipes up from behind its own baseline.
-           The padding stops descenders (g, y, j) being shaved by the clip. */
-        <div style={{ overflow: "hidden", paddingBottom: "0.1em" }}>
+           The padding stops descenders (g, y, j) being shaved by the clip.
+
+           The viewport trigger lives on this outer div, never on the <h2>.
+           The h2 starts translated 108% of its own height downward, so an
+           observer attached to it would be watching a box far below where the
+           heading actually sits — on a clamp(72px,12vw,200px) title that is
+           hundreds of px of error, and with `once: true` a missed trigger
+           leaves the heading hidden for good. The wrapper never moves. */
+        <motion.div
+          style={{ overflow: "hidden", paddingBottom: "0.1em" }}
+          initial="hidden"
+          whileInView="show"
+          viewport={VIEWPORT}
+        >
           <motion.h2
             className="section-title"
-            initial={{ y: "108%" }}
-            whileInView={{ y: "0%" }}
-            viewport={VIEWPORT}
-            transition={{ duration: 1.05, delay: 0.08, ease: EASE }}
+            variants={{
+              hidden: { y: "108%" },
+              show: {
+                y: "0%",
+                transition: { duration: 1.05, delay: 0.08, ease: EASE },
+              },
+            }}
           >
             {children}
           </motion.h2>
-        </div>
+        </motion.div>
       )}
     </>
   );
