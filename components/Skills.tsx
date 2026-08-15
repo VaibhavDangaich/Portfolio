@@ -1,15 +1,17 @@
+import { Stagger, StaggerItem } from "@/components/motion/Reveal";
+import SectionHead from "@/components/motion/SectionHead";
+
 export default function Skills() {
   return (
     <section className="skills" id="stack">
-      <div className="section-label" data-reveal="">
-        <span className="line" />
-        <span>§ 05 — Stack</span>
-      </div>
-      <h2 className="section-title" data-reveal="">
+      <SectionHead label="§ 05 — Stack">
         Tools of the <em>trade</em>.
-      </h2>
-      <div className="skill-grid">
-        <div className="skill-col" data-reveal="">
+      </SectionHead>
+      {/* StaggerItem renders .skill-col itself rather than wrapping it — the
+          grid child has to be the styled element or .skill-col--wide loses its
+          grid-column: 1 / -1 span. */}
+      <Stagger className="skill-grid">
+        <StaggerItem className="skill-col">
           <h4>
             Languages <span>α</span>
           </h4>
@@ -21,8 +23,8 @@ export default function Skills() {
             <li>SQL</li>
             <li>HTML / CSS</li>
           </ul>
-        </div>
-        <div className="skill-col" data-reveal="">
+        </StaggerItem>
+        <StaggerItem className="skill-col">
           <h4>
             Frameworks <span>β</span>
           </h4>
@@ -35,8 +37,8 @@ export default function Skills() {
             <li>Three.js</li>
             <li>scikit-learn</li>
           </ul>
-        </div>
-        <div className="skill-col" data-reveal="">
+        </StaggerItem>
+        <StaggerItem className="skill-col">
           <h4>
             Tools <span>γ</span>
           </h4>
@@ -50,8 +52,8 @@ export default function Skills() {
             <li>Jest · Postman</li>
             <li>Vector DBs</li>
           </ul>
-        </div>
-        <div className="skill-col" data-reveal="">
+        </StaggerItem>
+        <StaggerItem className="skill-col">
           <h4>
             Curious about <span>δ</span>
           </h4>
@@ -63,8 +65,8 @@ export default function Skills() {
             <li>Web Dev</li>
             <li>Comp. Programming</li>
           </ul>
-        </div>
-        <div className="skill-col skill-col--wide" data-reveal="">
+        </StaggerItem>
+        <StaggerItem className="skill-col skill-col--wide">
           <h4>
             CS fundamentals <span>ε</span>
           </h4>
@@ -74,8 +76,8 @@ export default function Skills() {
             <li>OOP</li>
             <li>Data Structures &amp; Algorithms</li>
           </ul>
-        </div>
-      </div>
+        </StaggerItem>
+      </Stagger>
     </section>
   );
 }

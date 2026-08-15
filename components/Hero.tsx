@@ -1,48 +1,62 @@
+import { Entrance } from "@/components/motion/Reveal";
+
 export default function Hero() {
   return (
     <section className="hero" id="top">
       <div className="hero-text">
         <div>
-          <div className="section-label" data-reveal="">
-            <span className="line" />
-            <span>§ 00 — Hello</span>
-          </div>
-          <h1 data-reveal="">
-            <span className="first" data-scramble="">Vaibhav</span>
-            <span className="last">Dangaich</span>
-          </h1>
+          <Entrance delay={0.1}>
+            <div className="section-label">
+              <span className="line" />
+              <span>§ 00 — Hello</span>
+            </div>
+          </Entrance>
+          {/* data-scramble stays on the inner span — ui.js rewrites its text,
+              so the motion wrapper has to sit above it, not on it. */}
+          <Entrance delay={0.22} y={28}>
+            <h1>
+              <span className="first" data-scramble="">
+                Vaibhav
+              </span>
+              <span className="last">Dangaich</span>
+            </h1>
+          </Entrance>
         </div>
 
-        <p className="hero-sub" data-reveal="">
-          I build with <strong>LLMs</strong>, knowledge graphs, and a worrying
-          amount of caffeine. Just wrapped an SDE internship at{" "}
-          <strong>123 of AI</strong> — cohort learning, payments and a
-          recommendation engine on Azure. Before that: real-time pipelines for a
-          defense-intelligence project, and a{" "}
-          <strong>first-authored paper</strong> on ontology-guided knowledge
-          graph extraction.
-        </p>
+        <Entrance delay={0.38}>
+          <p className="hero-sub">
+            I build with <strong>LLMs</strong>, knowledge graphs, and a worrying
+            amount of caffeine. Just wrapped an SDE internship at{" "}
+            <strong>123 of AI</strong> — cohort learning, payments and a
+            recommendation engine on Azure. Before that: real-time pipelines for
+            a defense-intelligence project, and a{" "}
+            <strong>first-authored paper</strong> on ontology-guided knowledge
+            graph extraction.
+          </p>
+        </Entrance>
 
-        <div className="hero-meta" data-reveal="">
-          <div>
-            <b>BIT Mesra</b>
-            AIML, B.Tech
-            <br />
-            2023 — 2027
+        <Entrance delay={0.5}>
+          <div className="hero-meta">
+            <div>
+              <b>BIT Mesra</b>
+              AIML, B.Tech
+              <br />
+              2023 — 2027
+            </div>
+            <div>
+              <b>123 of AI</b>
+              SDE Intern
+              <br />
+              May — Jul 2026
+            </div>
+            <div>
+              <b>Jharkhand → ∞</b>
+              IST, GMT+5:30
+              <br />
+              chai-powered
+            </div>
           </div>
-          <div>
-            <b>123 of AI</b>
-            SDE Intern
-            <br />
-            May — Jul 2026
-          </div>
-          <div>
-            <b>Jharkhand → ∞</b>
-            IST, GMT+5:30
-            <br />
-            chai-powered
-          </div>
-        </div>
+        </Entrance>
 
         <div className="scroll-cue" aria-hidden="true">
           <span className="bar" />
@@ -50,6 +64,7 @@ export default function Hero() {
         </div>
       </div>
 
+      {/* Untouched: hero-graph.js owns this canvas and its label positioning. */}
       <div className="hero-canvas-wrap" data-cursor="grab">
         <canvas id="hero-canvas" />
         <div className="graph-labels" id="graph-labels" />

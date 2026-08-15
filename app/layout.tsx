@@ -134,6 +134,15 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* framer-motion server-renders its `initial` state as inline styles,
+            so without JS the revealed content would stay at opacity 0 — same
+            as the [data-reveal] CSS this replaced. Undo it when JS is off. */}
+        <noscript>
+          <style>{`
+            [style*="opacity:0"] { opacity: 1 !important; }
+            [style*="translateY"] { transform: none !important; }
+          `}</style>
+        </noscript>
       </head>
       <body>{children}</body>
     </html>

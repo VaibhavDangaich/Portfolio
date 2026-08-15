@@ -1,16 +1,15 @@
+import { Stagger, StaggerItem } from "@/components/motion/Reveal";
+import SectionHead from "@/components/motion/SectionHead";
+
 export default function Education() {
   return (
     <section className="education" id="education">
-      <div className="section-label" data-reveal="">
-        <span className="line" />
-        <span>§ 06 — Education</span>
-      </div>
-      <h2 className="section-title" data-reveal="">
+      <SectionHead label="§ 06 — Education">
         Schools <em>attended</em>.
-      </h2>
+      </SectionHead>
 
-      <div className="edu-list">
-        <div className="edu-row" data-reveal="" data-cursor="hover">
+      <Stagger className="edu-list">
+        <StaggerItem className="edu-row" dataCursor="hover">
           <div className="when">Sep 2023 — Sep 2027</div>
           <div className="what">
             <h3>Birla Institute of Technology, Mesra</h3>
@@ -19,8 +18,8 @@ export default function Education() {
           <div className="score">
             8.4<small>CGPA</small>
           </div>
-        </div>
-        <div className="edu-row" data-reveal="" data-cursor="hover">
+        </StaggerItem>
+        <StaggerItem className="edu-row" dataCursor="hover">
           <div className="when">2022</div>
           <div className="what">
             <h3>Subhash Public School</h3>
@@ -29,8 +28,8 @@ export default function Education() {
           <div className="score">
             89%<small>Class XII</small>
           </div>
-        </div>
-        <div className="edu-row" data-reveal="" data-cursor="hover">
+        </StaggerItem>
+        <StaggerItem className="edu-row" dataCursor="hover">
           <div className="when">2020</div>
           <div className="what">
             <h3>BNS DAV Public School</h3>
@@ -39,8 +38,8 @@ export default function Education() {
           <div className="score">
             93.2%<small>Class X</small>
           </div>
-        </div>
-      </div>
+        </StaggerItem>
+      </Stagger>
     </section>
   );
 }

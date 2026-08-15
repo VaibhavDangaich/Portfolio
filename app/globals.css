@@ -617,11 +617,23 @@ section { position: relative; padding: 120px 80px; }
 .sound-toggle .led { width: 6px; height: 6px; border-radius: 50%; background: var(--paper-edge); transition: background 220ms; }
 .sound-toggle.on .led { background: var(--accent); }
 
-/* reveal on scroll */
-[data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 720ms ease, transform 720ms cubic-bezier(.2,.7,.2,1); }
-[data-reveal].in { opacity: 1; transform: translateY(0); }
-[data-reveal-stagger] > * { opacity: 0; transform: translateY(16px); transition: opacity 600ms ease, transform 600ms cubic-bezier(.2,.7,.2,1); }
-[data-reveal-stagger].in > * { opacity: 1; transform: translateY(0); }
+/* Scroll reveals now live in components/motion/ (framer-motion), not here.
+   The old [data-reveal] rules were removed with their markup — keeping them
+   would set opacity:0 on anything that ever regained the attribute, with no
+   observer left in ui.js to add .in and bring it back. */
+
+/* ============= REDUCED MOTION ============= */
+/* The motion components each check useReducedMotion() and render static, and
+   SmoothScroll skips Lenis entirely. This covers the rest: the CSS keyframes
+   and hover transitions that predate framer-motion. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 
 /* ============= RESPONSIVE ============= */
 

@@ -1,19 +1,29 @@
+import { MaskReveal, Reveal } from "@/components/motion/Reveal";
+import SectionLabel from "@/components/motion/SectionLabel";
+
 export default function Projects() {
   return (
     <section className="projects" id="projects">
-      <div className="section-label" data-reveal="">
-        <span className="line" />
-        <span>§ 04 — Things I&apos;ve built</span>
-      </div>
+      {/* The label sits outside .projects-intro here, so this section builds
+          its head from the pieces rather than using <SectionHead>.
+          Everything below #physics-stage is deliberately left alone —
+          physics-cards.js writes .pcard transforms directly every frame, and
+          a framer-motion transform on the same node would fight it. */}
+      <SectionLabel label="§ 04 — Things I've built" />
       <div className="projects-intro">
-        <h2 className="section-title" data-reveal="">
-          Side <em>quests</em>.
-        </h2>
-        <div className="hint" data-reveal="">
-          <b>* pick them up.</b>
-          <br />
-          grab a card, fling it, watch it spring back. yes, that&apos;s the joke.
-        </div>
+        <MaskReveal>
+          <h2 className="section-title">
+            Side <em>quests</em>.
+          </h2>
+        </MaskReveal>
+        <Reveal delay={0.2} y={16}>
+          <div className="hint">
+            <b>* pick them up.</b>
+            <br />
+            grab a card, fling it, watch it spring back. yes, that&apos;s the
+            joke.
+          </div>
+        </Reveal>
       </div>
 
       <div id="physics-stage" data-cursor="grab">

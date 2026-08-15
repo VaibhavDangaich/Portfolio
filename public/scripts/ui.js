@@ -148,8 +148,13 @@
   }
 
   // ---------- smooth-scroll nav links ----------
+  // Fallback only. components/SmoothScroll.tsx handles in-page anchors through
+  // Lenis and stops the event in the capture phase, so this listener runs only
+  // when Lenis is absent — prefers-reduced-motion, or before hydration. Native
+  // smooth scrolling is the right answer in both of those cases.
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
     a.addEventListener('click', (e) => {
+      if (window.__lenis) return;
       const href = a.getAttribute('href');
       if (!href || href === '#') return;
       const target = document.querySelector(href);

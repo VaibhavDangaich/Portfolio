@@ -1,15 +1,14 @@
+import { Stagger, StaggerItem } from "@/components/motion/Reveal";
+import SectionHead from "@/components/motion/SectionHead";
+
 export default function Achievements() {
   return (
     <section className="achieve" id="wins">
-      <div className="section-label" data-reveal="">
-        <span className="line" />
-        <span>§ 07 — A few wins</span>
-      </div>
-      <h2 className="section-title" data-reveal="">
-        Receipts.
-      </h2>
-      <div className="ach-grid">
-        <div className="ach-card" data-reveal="" data-cursor="hover">
+      <SectionHead label="§ 07 — A few wins">Receipts.</SectionHead>
+      {/* `lift` reproduces .ach-card:hover here, since the inline transform
+          framer-motion writes would otherwise outrank the CSS rule. */}
+      <Stagger className="ach-grid">
+        <StaggerItem className="ach-card" dataCursor="hover" lift>
           <span className="corner">/ 01</span>
           <div className="big">400+</div>
           <div className="lbl">DSA problems solved</div>
@@ -17,8 +16,8 @@ export default function Achievements() {
             Across LeetCode, Codeforces, GeeksforGeeks and CodeStudio. Yes, I
             have a spreadsheet. No, I won&apos;t show it to you.
           </p>
-        </div>
-        <div className="ach-card" data-reveal="" data-cursor="hover">
+        </StaggerItem>
+        <StaggerItem className="ach-card" dataCursor="hover" lift>
           <span className="corner">/ 02</span>
           <div className="big">Top 5</div>
           <div className="lbl">IEEE CTF · BIT Mesra · 200+ teams</div>
@@ -27,8 +26,8 @@ export default function Achievements() {
             real-world security challenges in a team of four, mostly on coffee
             and dread.
           </p>
-        </div>
-      </div>
+        </StaggerItem>
+      </Stagger>
     </section>
   );
 }

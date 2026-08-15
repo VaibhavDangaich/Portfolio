@@ -1,42 +1,62 @@
+import { MaskReveal, Stagger, StaggerLink } from "@/components/motion/Reveal";
+import SectionLabel from "@/components/motion/SectionLabel";
+
 export default function Contact() {
   return (
     <section className="contact" id="contact">
-      <div className="section-label" data-reveal="">
-        <span className="line" />
-        <span>§ 08 — Get in touch</span>
-      </div>
-      <h2 className="contact-hero" data-reveal="">
-        <span className="arr">↳</span> Let&apos;s <em>build</em>
-        <br />
-        something.
-      </h2>
+      <SectionLabel label="§ 08 — Get in touch" />
 
-      <div className="contact-grid" data-reveal-stagger="">
-        <a href="mailto:vaibhavdangaich@gmail.com" data-cursor="link">
+      {/* .contact-hero, not .section-title — so it gets the mask wipe directly
+          rather than going through <SectionHead>. */}
+      <MaskReveal>
+        <h2 className="contact-hero">
+          <span className="arr">↳</span> Let&apos;s <em>build</em>
+          <br />
+          something.
+        </h2>
+      </MaskReveal>
+
+      <Stagger className="contact-grid">
+        <StaggerLink href="mailto:vaibhavdangaich@gmail.com" dataCursor="link">
           <span className="k">Email</span>
           <span className="v">vaibhavdangaich@gmail.com</span>
-        </a>
-        <a href="tel:+917717785632" data-cursor="link">
+        </StaggerLink>
+        <StaggerLink href="tel:+917717785632" dataCursor="link">
           <span className="k">Phone</span>
           <span className="v">+91 77177 85632</span>
-        </a>
-        <a href="https://www.linkedin.com/in/vaibhavdangaich" target="_blank" rel="noopener noreferrer" data-cursor="link">
+        </StaggerLink>
+        <StaggerLink
+          href="https://www.linkedin.com/in/vaibhavdangaich"
+          target="_blank"
+          rel="noopener noreferrer"
+          dataCursor="link"
+        >
           <span className="k">LinkedIn</span>
           <span className="v">/in/vaibhavdangaich ↗</span>
-        </a>
-        <a href="https://github.com/VaibhavDangaich" target="_blank" rel="noopener noreferrer" data-cursor="link">
+        </StaggerLink>
+        <StaggerLink
+          href="https://github.com/VaibhavDangaich"
+          target="_blank"
+          rel="noopener noreferrer"
+          dataCursor="link"
+        >
           <span className="k">GitHub</span>
           <span className="v">@VaibhavDangaich ↗</span>
-        </a>
-        <a href="https://leetcode.com/u/vaibhavdangaich" target="_blank" rel="noopener noreferrer" data-cursor="link">
+        </StaggerLink>
+        <StaggerLink
+          href="https://leetcode.com/u/vaibhavdangaich"
+          target="_blank"
+          rel="noopener noreferrer"
+          dataCursor="link"
+        >
           <span className="k">LeetCode</span>
           <span className="v">/u/vaibhavdangaich ↗</span>
-        </a>
-        <a href="#top" data-cursor="link">
+        </StaggerLink>
+        <StaggerLink href="#top" dataCursor="link">
           <span className="k">Back to top</span>
           <span className="v">↑ rewind</span>
-        </a>
-      </div>
+        </StaggerLink>
+      </Stagger>
 
       <div className="footer">
         <div>

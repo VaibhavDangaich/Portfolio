@@ -13,7 +13,9 @@ import Frame from "@/components/Frame";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import Publications from "@/components/Publications";
+import ScrollProgress from "@/components/motion/ScrollProgress";
 import Skills from "@/components/Skills";
+import SmoothScroll from "@/components/SmoothScroll";
 import SoundToggle from "@/components/SoundToggle";
 import TopBar from "@/components/TopBar";
 import TryPrompt from "@/components/TryPrompt";
@@ -21,6 +23,9 @@ import TryPrompt from "@/components/TryPrompt";
 export default function Page() {
   return (
     <>
+      <SmoothScroll />
+      <ScrollProgress />
+
       <Frame />
       <TopBar />
 
