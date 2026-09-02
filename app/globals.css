@@ -145,18 +145,7 @@ section { position: relative; padding: 120px 80px; }
 
 .hero h1 {
   font-family: var(--serif); font-weight: 400;
-  font-size: clamp(64px, 10vw, 168px);
-  line-height: 0.92; letter-spacing: -0.025em;
   color: var(--ink);
-}
-.hero h1 .first { display: block; }
-.hero h1 .last {
-  display: block; font-style: italic; color: var(--accent);
-  text-indent: 1.5ch;
-}
-.hero h1 .last::before {
-  content: "—"; color: var(--ink); font-style: normal; margin-right: 0.4ch;
-  display: inline-block; transform: translateY(-0.12em);
 }
 
 .hero-sub {
@@ -646,6 +635,78 @@ section { position: relative; padding: 120px 80px; }
 .sound-toggle .led { width: 6px; height: 6px; border-radius: 50%; background: var(--paper-edge); transition: background 220ms; }
 .sound-toggle.on .led { background: var(--accent); }
 
+/* ============= DEPTH TEXT ============= */
+/* Ported from React Bits (DepthText). Rules folded in here rather than a
+   sibling stylesheet — this codebase keeps one global CSS file, not a
+   per-component pattern. Two deliberate departures from the upstream CSS:
+   - letter-spacing tightened from -0.065em to -0.025em to match .hero h1's
+     own tracking, so the extrusion doesn't read tighter than the rest of
+     the wordmark.
+   - the upstream `cursor: default` on hover-capable pointers is dropped:
+     this site draws its own cursor (body { cursor: none }) and that rule
+     would bring the system arrow back over the name. */
+.depth-text {
+  display: inline-block;
+  perspective: var(--depth-text-perspective);
+  perspective-origin: 50% 48%;
+  isolation: isolate;
+}
+.depth-text__stage {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  transform-style: preserve-3d;
+  transform: rotateX(-2.4deg) rotateY(3.15deg);
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+.depth-text__layer,
+.depth-text__face {
+  grid-area: 1 / 1;
+  display: inline-block;
+  font-size: var(--depth-text-font-size);
+  font-weight: var(--depth-text-font-weight);
+  line-height: 0.86;
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+  user-select: none;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  font-kerning: normal;
+  text-rendering: geometricPrecision;
+}
+.depth-text__layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  filter: saturate(0.95) brightness(0.92);
+  pointer-events: none;
+}
+.depth-text__face {
+  position: relative;
+  z-index: 1;
+  color: var(--depth-text-face-color);
+  text-shadow: var(--depth-text-shadow);
+  transform: translateZ(0.6px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .depth-text__stage { will-change: auto; }
+}
+
+/* hero name — two DepthText instances standing in for the old two-span
+   scramble headline; block + fit-content so they stack without inheriting
+   the h1's own font-size (each instance sizes itself via its fontSize prop). */
+.hero-name__first,
+.hero-name__last { display: block; width: fit-content; }
+.hero-name__last-row {
+  display: flex; align-items: baseline; gap: 0.4ch;
+  margin-top: 4px;
+}
+.hero-name__last-row .hero-name__dash {
+  color: var(--ink); transform: translateY(-0.12em);
+}
+.hero-name__last { font-style: italic; }
+
 /* Scroll reveals now live in components/motion/ (framer-motion), not here.
    The old [data-reveal] rules were removed with their markup — keeping them
    would set opacity:0 on anything that ever regained the attribute, with no
@@ -702,7 +763,6 @@ section { position: relative; padding: 120px 80px; }
   .resume-link span { display: none; }
   .resume-link { padding: 7px; }
 
-  .hero h1 { font-size: clamp(48px, 14vw, 96px); }
   .hero-text { gap: 32px; }
   .hero-meta { grid-template-columns: 1fr 1fr; gap: 16px; }
   .hero-canvas-wrap { height: 60vh; }
@@ -787,8 +847,7 @@ body.dark .sound-toggle { background: var(--paper); border-color: var(--paper-ed
 body.dark .sound-toggle:hover { border-color: var(--ink); color: var(--ink); }
 body.dark .pcard h3 em,
 body.dark .exp-role h3 em,
-body.dark .section-title em,
-body.dark .hero h1 .last { color: var(--accent); }
+body.dark .section-title em { color: var(--accent); }
 body.dark .hero-canvas-wrap {
   background: linear-gradient(135deg, var(--paper) 0%, var(--paper-2) 100%);
 }

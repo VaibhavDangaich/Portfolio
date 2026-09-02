@@ -1,3 +1,4 @@
+import DepthText from "@/components/DepthText";
 import { Entrance } from "@/components/motion/Reveal";
 
 export default function Hero() {
@@ -11,14 +12,50 @@ export default function Hero() {
               <span>§ 00 — Hello</span>
             </div>
           </Entrance>
-          {/* data-scramble stays on the inner span — ui.js rewrites its text,
-              so the motion wrapper has to sit above it, not on it. */}
+          {/* DepthText (React Bits) replaces the old data-scramble effect —
+              two instances so "Vaibhav" / "Dangaich" keep stacking the way
+              the rest of the hero expects. pointerTracking is off on both:
+              with the lines stacked, a cursor sitting between them would
+              otherwise tilt each line toward it in opposite directions: the
+              synced autoOrbit fallback (both mount together, so their
+              orbits stay in phase) is the coherent version of this. */}
           <Entrance delay={0.22} y={28}>
-            <h1>
-              <span className="first" data-scramble="">
-                Vaibhav
+            <h1 className="hero-name">
+              <DepthText
+                text="Vaibhav"
+                className="hero-name__first"
+                layers={18}
+                depth={2}
+                faceColor="var(--ink)"
+                depthColor="var(--accent)"
+                tilt={5}
+                pointerTracking={false}
+                autoOrbit
+                orbitSpeed={0.28}
+                fontSize="clamp(52px, 7.5vw, 128px)"
+                fontWeight={400}
+                shadow={false}
+              />
+              <span className="hero-name__last-row">
+                <span className="hero-name__dash" aria-hidden="true">
+                  —
+                </span>
+                <DepthText
+                  text="Dangaich"
+                  className="hero-name__last"
+                  layers={18}
+                  depth={2}
+                  faceColor="var(--accent)"
+                  depthColor="var(--ink)"
+                  tilt={5}
+                  pointerTracking={false}
+                  autoOrbit
+                  orbitSpeed={0.28}
+                  fontSize="clamp(52px, 7.5vw, 128px)"
+                  fontWeight={400}
+                  shadow
+                />
               </span>
-              <span className="last">Dangaich</span>
             </h1>
           </Entrance>
         </div>
