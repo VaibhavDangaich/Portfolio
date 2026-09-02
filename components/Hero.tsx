@@ -14,27 +14,39 @@ export default function Hero() {
           </Entrance>
           {/* DepthText (React Bits) replaces the old data-scramble effect —
               two instances so "Vaibhav" / "Dangaich" keep stacking the way
-              the rest of the hero expects. pointerTracking is off on both:
-              with the lines stacked, a cursor sitting between them would
-              otherwise tilt each line toward it in opposite directions: the
-              synced autoOrbit fallback (both mount together, so their
-              orbits stay in phase) is the coherent version of this. */}
+              the rest of the hero expects. Both share measureSelector
+              ".hero-name": stacked lines each tracking the pointer against
+              their own (differently positioned) box would tilt opposite
+              directions when the cursor sits between them, so instead both
+              compute their rotation from the shared h1's box and rotate by
+              the same degrees in sync.
+              autoOrbit is off on both: it fights the pointerleave reset — on
+              cursor-out, target snaps toward baseRotation but the very next
+              tick would hand it back to the orbit at whatever phase it's
+              reached, producing a small jump every time the pointer leaves
+              the window. With it off, pointerleave is just a clean settle
+              back to baseRotation. perspective is raised to 1100 (from the
+              component's 900 default) so the two stacked boxes — each with
+              its own vanishing point at 3.2px × 26 layers of extrusion —
+              don't diverge into reading as separate objects. */}
           <Entrance delay={0.22} y={28}>
             <h1 className="hero-name">
               <DepthText
                 text="Vaibhav"
                 className="hero-name__first"
-                layers={18}
-                depth={2}
+                measureSelector=".hero-name"
+                layers={26}
+                depth={3.2}
                 faceColor="var(--ink)"
                 depthColor="var(--accent)"
-                tilt={5}
-                pointerTracking={false}
-                autoOrbit
-                orbitSpeed={0.28}
+                tilt={9}
+                pointerTracking
+                smoothing={0.18}
+                perspective={1100}
+                autoOrbit={false}
                 fontSize="clamp(52px, 7.5vw, 128px)"
                 fontWeight={400}
-                shadow={false}
+                shadow
               />
               <span className="hero-name__last-row">
                 <span className="hero-name__dash" aria-hidden="true">
@@ -43,14 +55,16 @@ export default function Hero() {
                 <DepthText
                   text="Dangaich"
                   className="hero-name__last"
-                  layers={18}
-                  depth={2}
+                  measureSelector=".hero-name"
+                  layers={26}
+                  depth={3.2}
                   faceColor="var(--accent)"
                   depthColor="var(--ink)"
-                  tilt={5}
-                  pointerTracking={false}
-                  autoOrbit
-                  orbitSpeed={0.28}
+                  tilt={9}
+                  pointerTracking
+                  smoothing={0.18}
+                  perspective={1100}
+                  autoOrbit={false}
                   fontSize="clamp(52px, 7.5vw, 128px)"
                   fontWeight={400}
                   shadow

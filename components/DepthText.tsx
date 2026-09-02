@@ -52,6 +52,14 @@ export interface DepthTextProps {
   shadow?: boolean;
   className?: string;
   style?: CSSProperties;
+  /** CSS selector for an ancestor to measure the pointer against instead of
+   * this instance's own box (via Element.closest). Two instances sharing a
+   * selector — e.g. a common wrapper — compute the same normalized x/y and
+   * so rotate by the same degrees in sync, instead of each reacting to the
+   * cursor's offset from its own (differently positioned) center, which
+   * tilts side-by-side or stacked instances toward the cursor in opposite
+   * directions. */
+  measureSelector?: string;
 }
 
 export default function DepthText({
@@ -71,6 +79,7 @@ export default function DepthText({
   shadow = true,
   className = "",
   style = {},
+  measureSelector,
 }: DepthTextProps) {
   const rootRef = useRef<HTMLSpanElement>(null);
   const stageRef = useRef<HTMLSpanElement>(null);
@@ -112,6 +121,10 @@ export default function DepthText({
       "(hover: hover) and (pointer: fine)"
     ).matches;
     const canTrackPointer = pointerTracking && finePointer && !reducedMotion;
+    const measureEl =
+      (measureSelector &&
+        (root.closest(measureSelector) as HTMLElement | null)) ||
+      root;
 
     let frameId = 0;
     let activePointer = false;
@@ -129,7 +142,7 @@ export default function DepthText({
     }
 
     const handlePointerMove = (event: PointerEvent) => {
-      const rect = root.getBoundingClientRect();
+      const rect = measureEl.getBoundingClientRect();
       if (!rect.width || !rect.height) return;
 
       activePointer = true;
